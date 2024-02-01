@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ff0066;
+            text-align: center;
+        }
+        
+        .question-container {
+            margin-top: 100px;
+        }
+        
+        button {
+            font-size: 18px;
+            padding: 12px 24px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        #yesBtn {
+            background-color: #66ff33;
+            color: #fff;
+        }
+        
+        #yesBtn:hover {
+            background-color: #ff4040;
+        }
+        
+        #noBtn {
+            background-color: #9c88ff;
+            color: #fff;
+        }
+        
+        #noBtn:hover {
+            background-color: #7a67e0;
+        }
+        
+        #thanks-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+    </style>
+    <title>Valentine's Day</title>
+</head>
+<body>
+    <div class="question-container" id="question-container">
+        <h1>Will you be my Valentine?</h1>
+        <button id="yesBtn" onclick="handleYes()">Yes</button>
+        <button id="noBtn" onclick="handleNo()">No</button>
+    </div>
+
+    <div id="thanks-container">
+        <h2>Thank you for saying yes!</h2>
+        <img src="bear.gif" alt="Cute Teddy">
+    </div>
+
+    <script>
+        function handleYes() {
+            document.getElementById('question-container').style.display = 'none';
+            document.getElementById('thanks-container').style.display = 'flex';
+        }
+
+        function handleNo() {
+            const noBtn = document.getElementById('noBtn');
+            const xPos = Math.random() * window.innerWidth;
+            const yPos = Math.random() * window.innerHeight;
+
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = xPos + 'px';
+            noBtn.style.top = yPos + 'px';
+        }
+    </script>
+</body>
+</html>
